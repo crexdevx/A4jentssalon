@@ -155,8 +155,7 @@ function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           variants={fadeInUp}
           className="text-center mb-16"
         >
@@ -169,9 +168,7 @@ function Services() {
         </motion.div>
 
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
@@ -222,9 +219,7 @@ function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={staggerContainer}
           >
             <motion.span variants={fadeInUp} className="block text-sm font-bold tracking-widest text-[#F5C518] uppercase mb-4">
@@ -255,9 +250,7 @@ function About() {
           </motion.div>
 
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={staggerContainer}
             className="grid grid-cols-2 gap-4"
           >
@@ -306,9 +299,7 @@ function Reviews() {
     <section id="reviews" className="py-24 bg-[#FFFBEA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           variants={fadeInUp}
           className="text-center mb-16"
         >
@@ -321,9 +312,7 @@ function Reviews() {
         </motion.div>
 
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
@@ -365,9 +354,7 @@ function MapSection() {
     <section id="contact" className="py-24 bg-[#FFF3C4]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           variants={fadeInUp}
           className="text-center mb-12"
         >
@@ -382,9 +369,8 @@ function MapSection() {
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
           className="w-full border-4 border-gray-200 rounded-2xl overflow-hidden shadow-lg"
         >
           <iframe
