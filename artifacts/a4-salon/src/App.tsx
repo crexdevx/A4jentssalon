@@ -21,9 +21,8 @@ const popUp: Variants = {
 };
 
 const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: { staggerChildren: 0.18 }
   }
 };
@@ -167,15 +166,10 @@ function Services() {
           </p>
         </motion.div>
 
-        <motion.div
-          animate="visible"
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={service.id}
-              variants={popUp}
               className={`group bg-white p-8 border-2 border-gray-200 border-l-4 border-l-[#F4C01E] relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[#F4C01E] hover:shadow-[8px_8px_0px_0px_rgba(244,192,30,0.25)] ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
               <div className="flex items-center justify-between mb-6">
@@ -186,16 +180,15 @@ function Services() {
                   0{service.id}
                 </div>
               </div>
-
               <h3 className="text-2xl font-heading font-bold text-[#111111] mb-3 uppercase tracking-wide">
                 {service.name}
               </h3>
               <p className="text-gray-500 leading-relaxed font-sans">
                 {service.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="mt-16 text-center">
           <a
@@ -218,58 +211,45 @@ function About() {
     <section id="about" className="py-24 bg-[#FFF3C4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <motion.span variants={fadeInUp} className="block text-sm font-bold tracking-widest text-[#F5C518] uppercase mb-4">
+          <div>
+            <span className="block text-sm font-bold tracking-widest text-[#F5C518] uppercase mb-4">
               About Us
-            </motion.span>
-            <motion.h2
-              variants={fadeInUp}
-              className="text-4xl md:text-5xl font-heading font-bold text-[#111111] mb-6 uppercase leading-tight"
-            >
+            </span>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-[#111111] mb-6 uppercase leading-tight">
               Crafted for the <span className="text-[#F5C518]">Modern</span> Man
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-gray-600 text-lg leading-relaxed mb-6">
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
               A4 Gents Salon Nalbari is Assam's premier destination for men's grooming. Founded with a passion for precision and style, we bring world-class barbering techniques to the heart of Nalbari.
-            </motion.p>
-            <motion.p variants={fadeInUp} className="text-gray-600 text-lg leading-relaxed mb-10">
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed mb-10">
               Our expert stylists — led by Abdul — have mastered the art of the perfect cut, shave, and style. Every client walks out looking sharp and feeling confident.
-            </motion.p>
-            <motion.div variants={fadeInUp}>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-[#F5C518] text-[#111111] px-8 py-4 rounded-full font-heading font-bold text-lg uppercase tracking-wider hover:bg-yellow-400 transition-colors duration-300"
-              >
-                MEET THE TEAM →
-              </a>
-            </motion.div>
-          </motion.div>
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-[#F5C518] text-[#111111] px-8 py-4 rounded-full font-heading font-bold text-lg uppercase tracking-wider hover:bg-yellow-400 transition-colors duration-300"
+            >
+              MEET THE TEAM →
+            </a>
+          </div>
 
-          <motion.div
-            animate="visible"
-            variants={staggerContainer}
-            className="grid grid-cols-2 gap-4"
-          >
+          <div className="grid grid-cols-2 gap-4">
             {[
               { value: '5+',   label: 'Years Experience' },
               { value: '25+',  label: 'Google Reviews'   },
               { value: '4.5★', label: 'Rating'           },
               { value: '100%', label: 'Satisfaction'     },
             ].map((stat, i) => (
-              <motion.div
+              <div
                 key={i}
-                variants={popUp}
                 className="bg-white border-2 border-gray-200 hover:border-[#F5C518] p-8 text-center transition-colors duration-300"
               >
                 <div className="text-4xl font-heading font-bold text-[#F5C518] mb-2">{stat.value}</div>
                 <div className="text-gray-500 text-sm uppercase tracking-widest">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -311,15 +291,10 @@ function Reviews() {
           </p>
         </motion.div>
 
-        <motion.div
-          animate="visible"
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((review) => (
-            <motion.div
+            <div
               key={review.id}
-              variants={popUp}
               className="bg-white p-8 border-2 border-gray-200 flex flex-col h-full hover:border-[#F5C518] transition-colors duration-300 shadow-sm"
             >
               <div className="flex justify-between items-start mb-6">
@@ -330,19 +305,17 @@ function Reviews() {
                 </div>
                 <GoogleIcon />
               </div>
-
               <p className="text-gray-600 italic flex-grow mb-6 text-lg font-sans">
                 "{review.text}"
               </p>
-
               <div className="border-t-2 border-gray-100 pt-4 mt-auto">
                 <h4 className="font-heading font-bold text-[#111111] text-xl uppercase">
                   {review.name}
                 </h4>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -374,7 +347,7 @@ function MapSection() {
           className="w-full border-4 border-gray-200 rounded-2xl overflow-hidden shadow-lg"
         >
           <iframe
-            src="https://maps.google.com/maps?q=Mahendra+Narayan+Choudhury+Balika+Mahavidyalaya,+near+MNC+College,+Ward+No.+7,+Nalbari,+Majdia,+Assam+781353&output=embed"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=91.419%2C26.436%2C91.459%2C26.456&layer=mapnik&marker=26.4458%2C91.4390"
             width="100%"
             height="450"
             style={{ border: 0 }}
