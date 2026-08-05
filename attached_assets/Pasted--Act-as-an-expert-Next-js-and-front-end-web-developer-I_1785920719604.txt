@@ -1,0 +1,31 @@
+​Act as an expert Next.js and front-end web developer. I am building a minimalist Next.js App Router single-page landing website for a local salon named 'Grtx' in Nalbari, Assam. I have attached an image of the design I want, but you must follow one critical rule:
+​CRITICAL RULE: DO NOT EMBED THE DESIGN MOCKUP AS AN IMAGE.
+You must build this entire layout from scratch using actual HTML elements, Tailwind CSS, real text (<h1>, <p>), and real interactive buttons (<a>, <button>). Do not just put the screenshot on the page.
+​Important Infrastructure Rules:
+​Static Export: I need the code to be a 100% Static HTML Export because I am deploying to Cloudflare Pages. Add output: 'export' inside my next.config.js or next.config.mjs file immediately.
+​No SSR: Do not use any server-side rendering (SSR), API Routes, or Node.js backend features that are incompatible with a static export. All data should be fetched on the client side or pre-rendered at build time.
+​Build Scripts: Make sure my package.json scripts are standard (just "build": "next build") without any custom ports or 0.0.0.0 bindings.
+​Next.js Images: Ensure all images are compatible with the static export loader requirements (use standard HTML <img> tags for external links).
+​Global Scrolling: Add scroll-smooth to the global <html> tag for smooth navigation.
+​Global Design System:
+6. Aesthetic: Minimalist, clean. Off-white/cream background (#F9F9F9), true black text (#111111), and vibrant yellow/amber accents.
+7. Typography: Bold, condensed sans-serif (Oswald/Bebas Neue) for headers. Clean sans-serif (Inter) for body text.
+8. WhatsApp Integration: Every 'BOOK APPOINTMENT' button must be an <a> tag linking to: href="https://wa.me/918486754335?text=Hello%20Grtx%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!" target="_blank".
+​Section 1: Navbar (Sticky at top)
+9. Real Navigation: Create a real <nav> element. Left side: 'Grtx'. Center: Anchor links for 'HOME' (href="#home"), 'SERVICES' (href="#services"), and 'REVIEWS' (href="#reviews"). Right side: A yellow 'BOOK APPOINTMENT' WhatsApp button. Hide the center links on mobile and show a hamburger icon.
+​Section 2: Hero Section (id="home")
+10. Responsive Layout: Build a two-column grid (flex-col on mobile, flex-row on desktop).
+11. Left Column (Real Text): Use an <h1> for 'STYLE THAT SPEAKS YOU'. Make 'SPEAKS' the yellow accent color. Below it, add a real 'BOOK YOUR APPOINTMENT' button linking to WhatsApp.
+12. Right Column (Real Image): Use this exact live image link using a standard <img> tag: https://i.ibb.co/67Cnpvcp/file-000000002eec8208966cc0a06c147d4a.png. Apply w-full h-auto object-cover rounded-2xl. Do not let it crop aggressively.
+​Section 3: Our Services (id="services")
+13. Services Menu: Create a minimal grid. Title it 'OUR SERVICES'.
+14. Service List: Include exactly 5 services: Facials, Haircut, Hairstyling, Massage, and Wedding & event preparation. Style them as elegant, minimal cards with dark borders and yellow hover effects.
+​Section 4: Google Reviews (id="reviews")
+15. Reviews Layout: Create a minimal section titled 'CLIENT REVIEWS'.
+16. Real Testimonials: Create a grid with real 5-star Google reviews. Include a Google 'G' icon and 5 gold stars on each card.
+* Review 1: Name: "Rahima Begum", Text: "Good saloon."
+* Review 2: Name: "Jack Thakuria", Text: "The best hairstylist Name Abdul. Must recommend"
+* Review 3: Create a premium placeholder 5-star review.
+​Section 5: Map & Footer (id="contact")
+17. Map Embed: Add a clean section embedding a Google Maps iframe for 'Mahendra Narayan Choudhury Balika Mahavidyalaya, near MNC College, Ward No. 7, Majdia, Nalbari, Assam 781353'.
+18. Footer Content: Build a dark-themed (#111111) footer. Include: 'Grtx Nalbari', Google Rating (5 stars, '4.5 (25 Reviews)'), full address with a map pin, phone number ('084867 54335' linking to tel:08486754335), hours ('Open · Closes 9 pm'), and a final WhatsApp booking button.
