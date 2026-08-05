@@ -38,9 +38,13 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 w-full flex justify-end md:justify-center p-6 z-50">
+    <header className="w-full bg-[#F9F9F9] px-6 py-4 flex justify-between items-center border-b border-gray-200 relative z-50">
+      <a href="#home" className="font-heading font-bold text-xl tracking-wide text-[#111111]">
+        A4 GENTS SALON
+      </a>
+
       {/* Desktop links */}
-      <div className="hidden md:flex items-center space-x-8">
+      <nav className="hidden md:flex items-center space-x-8">
         {NAV_LINKS.map(link => (
           <a
             key={link.href}
@@ -50,7 +54,16 @@ function Navbar() {
             {link.label}
           </a>
         ))}
-      </div>
+      </nav>
+
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:inline-flex bg-[#F4C01E] text-[#111111] px-5 py-2.5 rounded-full font-heading font-bold tracking-wide hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
+      >
+        BOOK APPOINTMENT
+      </a>
 
       {/* Mobile hamburger */}
       <div className="md:hidden flex items-center">
@@ -84,29 +97,37 @@ function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-center mt-3 bg-[#F4C01E] text-[#111111] px-4 py-3 rounded-full font-heading font-bold tracking-wide"
+              >
+                BOOK APPOINTMENT
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 }
 
 /* ── Hero ── */
 function Hero() {
   return (
-    <section id="home" className="relative w-full h-screen md:min-h-screen flex items-center justify-center overflow-hidden bg-[#F9F9F9]">
+    <section id="home" className="w-full bg-[#F9F9F9] flex flex-col relative">
       <img
         src={HERO_IMAGE_URL}
         alt="Grtx Hero"
-        className="absolute inset-0 w-full h-full object-cover md:object-contain object-center"
+        className="w-full h-auto object-contain"
       />
-      <Navbar />
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute bottom-8 left-6 sm:bottom-12 sm:left-8 md:bottom-32 md:left-[10%] z-50 bg-[#111111] text-[#F4C01E] px-8 py-4 rounded-full font-heading font-bold tracking-wider shadow-lg hover:scale-105 transition-transform duration-300"
+        className="absolute bottom-[10%] left-[5%] md:bottom-[20%] md:left-[10%] z-40 bg-[#111111] text-[#F4C01E] px-8 py-4 rounded-full font-heading font-bold tracking-wider shadow-lg hover:scale-105 transition-transform duration-300"
       >
         BOOK APPOINTMENT →
       </a>
@@ -454,6 +475,7 @@ function Footer() {
 function App() {
   return (
     <div className="min-h-screen bg-[#FFFBEA] font-sans selection:bg-[#F5C518] selection:text-[#111111]">
+      <Navbar />
       <main>
         <Hero />
         <Services />
