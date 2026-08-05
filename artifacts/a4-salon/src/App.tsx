@@ -37,7 +37,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-[#FFFBEA]/95 backdrop-blur-sm border-b border-yellow-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
 
@@ -92,7 +92,7 @@ function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-200 overflow-hidden"
+            className="md:hidden bg-[#FFFBEA] border-b border-yellow-200 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
               {NAV_LINKS.map(link => (
@@ -125,7 +125,7 @@ function Navbar() {
 /* ── Hero ── */
 function Hero() {
   return (
-    <section id="home" className="w-full pt-20 bg-[#F9F9F9]">
+    <section id="home" className="w-full pt-20 bg-[#FFFBEA]">
       <img
         src={heroImg}
         alt="A4 Gents Salon — Style That Speaks You"
@@ -146,7 +146,7 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="py-24 bg-[#F9F9F9]">
+    <section id="services" className="py-24 bg-[#FFFBEA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -215,7 +215,7 @@ function Services() {
 /* ── About ── */
 function About() {
   return (
-    <section id="about" className="py-24 bg-[#F2F2F2]">
+    <section id="about" className="py-24 bg-[#FFF3C4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -300,7 +300,7 @@ function GoogleIcon() {
 
 function Reviews() {
   return (
-    <section id="reviews" className="py-24 bg-[#F9F9F9]">
+    <section id="reviews" className="py-24 bg-[#FFFBEA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -359,7 +359,7 @@ function Reviews() {
 /* ── Map / Contact ── */
 function MapSection() {
   return (
-    <section id="contact" className="py-24 bg-[#F2F2F2]">
+    <section id="contact" className="py-24 bg-[#FFF3C4]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -476,7 +476,7 @@ function Footer() {
 /* ── App ── */
 function App() {
   return (
-    <div className="min-h-screen bg-[#F9F9F9] font-sans selection:bg-[#F5C518] selection:text-[#111111]">
+    <div className="min-h-screen bg-[#FFFBEA] font-sans selection:bg-[#F5C518] selection:text-[#111111]">
       <Navbar />
       <main>
         <Hero />
