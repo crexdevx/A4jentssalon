@@ -10,20 +10,27 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
+const slideInLeft = {
+  hidden: { opacity: 0, x: -70 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: "easeOut" } }
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 70 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: "easeOut" } }
+};
+
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
+    transition: { staggerChildren: 0.13 }
   }
 };
 
 const NAV_LINKS = [
   { label: 'HOME',     href: '#home'     },
   { label: 'SERVICES', href: '#services' },
-  { label: 'GALLERY',  href: '#gallery'  },
   { label: 'ABOUT US', href: '#about'    },
   { label: 'CONTACT',  href: '#contact'  },
 ];
@@ -114,13 +121,12 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="home" className="relative w-full min-h-screen overflow-hidden">
-      {/* Full-bleed hero image — no overlay so the design fills edge-to-edge */}
+    /* pt-20 offsets the fixed navbar (h-20 = 80px) so image isn't hidden behind it */
+    <section id="home" className="w-full pt-20 bg-[#111111]">
       <img
         src={heroImg}
-        alt="A4 Gents Salon hero"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{ objectPosition: '50% 30%' }}
+        alt="A4 Gents Salon — Style That Speaks You"
+        className="w-full h-auto object-contain block"
       />
     </section>
   );
@@ -163,7 +169,7 @@ function Services() {
           {services.map((service, index) => (
             <motion.div 
               key={service.id}
-              variants={fadeInUp}
+              variants={index % 2 === 0 ? slideInLeft : slideInRight}
               className={`group bg-[#1a1a1a] p-8 border-2 border-white/10 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[#F5C518] hover:shadow-[8px_8px_0px_0px_rgba(245,197,24,0.3)] ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
               <div className="absolute top-0 left-0 w-2 h-full bg-white/10 group-hover:bg-[#F5C518] transition-colors duration-300"></div>
@@ -195,75 +201,6 @@ function Services() {
             className="inline-block border-b-2 border-[#F5C518] text-[#F5C518] font-heading font-bold text-xl uppercase tracking-wider hover:text-white hover:border-white transition-colors pb-1"
           >
             View Full Menu & Pricing →
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const galleryItems = [
-  { label: 'Precision Haircut',   bg: 'bg-[#1a1a1a]', icon: <Scissors className="w-10 h-10 text-[#F5C518]" /> },
-  { label: 'Beard Styling',       bg: 'bg-[#161616]', icon: <Wind className="w-10 h-10 text-[#F5C518]" />     },
-  { label: 'Facial Treatment',    bg: 'bg-[#1e1e1e]', icon: <Sparkles className="w-10 h-10 text-[#F5C518]" /> },
-  { label: 'Head Massage',        bg: 'bg-[#161616]', icon: <Hand className="w-10 h-10 text-[#F5C518]" />     },
-  { label: 'Wedding Grooming',    bg: 'bg-[#1a1a1a]', icon: <Crown className="w-10 h-10 text-[#F5C518]" />   },
-  { label: 'Hair Styling',        bg: 'bg-[#1e1e1e]', icon: <Star className="w-10 h-10 text-[#F5C518]" />    },
-];
-
-function Gallery() {
-  return (
-    <section id="gallery" className="py-24 bg-[#0d0d0d]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase tracking-wide">
-            Gallery
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Where precision meets artistry
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4"
-        >
-          {galleryItems.map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              className={`${item.bg} border-2 border-white/10 hover:border-[#F5C518] transition-all duration-300 group cursor-pointer overflow-hidden`}
-            >
-              <div className="aspect-square flex flex-col items-center justify-center gap-4 p-8 group-hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-20 h-20 rounded-full border-2 border-white/10 group-hover:border-[#F5C518] flex items-center justify-center transition-colors duration-300">
-                  {item.icon}
-                </div>
-                <p className="font-heading font-bold text-white text-lg uppercase tracking-widest text-center">
-                  {item.label}
-                </p>
-                <div className="w-8 h-0.5 bg-[#F5C518] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="mt-16 text-center">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-[#F5C518] text-[#111111] px-10 py-4 rounded-full font-heading font-bold text-lg uppercase tracking-wider hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
-          >
-            BOOK YOUR SESSION →
           </a>
         </div>
       </div>
@@ -535,7 +472,6 @@ function App() {
       <main>
         <Hero />
         <Services />
-        <Gallery />
         <About />
         <Reviews />
         <MapSection />
