@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Scissors, Sparkles, Wind, Hand, Crown, Star, MapPin, Phone, Clock, Menu, X } from 'lucide-react';
+import heroImg from '@assets/file_000000001b688208932afc657ac7302c_1785915993695.png';
 
 const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
 
@@ -23,19 +24,19 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-[#111111]/90 backdrop-blur-sm border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="font-heading font-bold text-2xl tracking-wide text-[#111111]">
+            <a href="#" className="font-heading font-bold text-2xl tracking-wide text-white">
               A4 GENTS SALON
             </a>
           </div>
           
           <div className="hidden md:flex items-center space-x-10">
-            <a href="#services" className="text-[#111111] hover:text-[#F5C518] font-medium transition-colors">Services</a>
-            <a href="#reviews" className="text-[#111111] hover:text-[#F5C518] font-medium transition-colors">Reviews</a>
-            <a href="#location" className="text-[#111111] hover:text-[#F5C518] font-medium transition-colors">Location</a>
+            <a href="#services" className="text-gray-300 hover:text-[#F5C518] font-medium transition-colors">Services</a>
+            <a href="#reviews" className="text-gray-300 hover:text-[#F5C518] font-medium transition-colors">Reviews</a>
+            <a href="#location" className="text-gray-300 hover:text-[#F5C518] font-medium transition-colors">Location</a>
           </div>
 
           <div className="hidden md:flex items-center">
@@ -43,7 +44,7 @@ function Navbar() {
               href={WHATSAPP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-[#111111] text-[#F5C518] px-6 py-2.5 rounded-full font-heading font-medium tracking-wide hover:bg-black hover:scale-105 transition-all duration-300"
+              className="bg-[#F5C518] text-[#111111] px-6 py-2.5 rounded-full font-heading font-bold tracking-wide hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
             >
               BOOK APPOINTMENT
             </a>
@@ -52,7 +53,7 @@ function Navbar() {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="text-[#111111] hover:text-[#F5C518] focus:outline-none"
+              className="text-white hover:text-[#F5C518] focus:outline-none"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
@@ -67,18 +68,18 @@ function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-200 overflow-hidden"
+            className="md:hidden bg-[#111111] border-b border-white/10 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-3">
-              <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-[#111111]">Services</a>
-              <a href="#reviews" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-[#111111]">Reviews</a>
-              <a href="#location" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-[#111111]">Location</a>
+              <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-gray-300 hover:text-[#F5C518]">Services</a>
+              <a href="#reviews" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-gray-300 hover:text-[#F5C518]">Reviews</a>
+              <a href="#location" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-gray-300 hover:text-[#F5C518]">Location</a>
               <a 
                 href={WHATSAPP_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center mt-4 bg-[#111111] text-[#F5C518] px-6 py-3 rounded-full font-heading font-medium tracking-wide"
+                className="block w-full text-center mt-4 bg-[#F5C518] text-[#111111] px-6 py-3 rounded-full font-heading font-bold tracking-wide"
               >
                 BOOK APPOINTMENT
               </a>
@@ -92,73 +93,15 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative bg-[#F9F9F9] pt-16 pb-20 lg:pt-32 lg:pb-36 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-          
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mb-16 lg:mb-0"
-          >
-            <motion.div variants={fadeInUp}>
-              <span className="block text-sm font-bold tracking-widest text-[#111111] uppercase mb-4 opacity-80">
-                Nalbari's Premier Gents Salon
-              </span>
-            </motion.div>
-            
-            <motion.h1 
-              variants={fadeInUp}
-              className="text-6xl sm:text-7xl lg:text-8xl font-heading font-bold uppercase leading-[1.05] text-[#111111] mb-6"
-            >
-              Look <span className="text-[#F5C518]">Sharp</span>.<br />
-              Feel <span className="text-[#F5C518]">Sharp</span>.
-            </motion.h1>
-            
-            <motion.p 
-              variants={fadeInUp}
-              className="text-lg sm:text-xl text-gray-700 mb-10 max-w-lg leading-relaxed"
-            >
-              Expert cuts, styling, and grooming for the modern gentleman. Precision matters.
-            </motion.p>
-            
-            <motion.div variants={fadeInUp}>
-              <a 
-                href={WHATSAPP_URL} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-[#111111] text-[#F5C518] px-8 py-4 rounded-full font-heading text-lg font-medium tracking-wider hover:bg-black hover:-translate-y-1 transition-transform duration-300 shadow-xl shadow-black/10 group"
-              >
-                BOOK YOUR APPOINTMENT 
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            {/* Background accent block */}
-            <div className="absolute -inset-4 sm:-inset-6 bg-[#F5C518] rounded-[2rem] transform rotate-3 scale-105 origin-bottom-right z-0"></div>
-            
-            {/* Image container */}
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-              <img 
-                src="https://i.ibb.co/67Cnpvcp/file-000000002eec8208966cc0a06c147d4a.png" 
-                alt="A4 Gents Salon Barber at Work" 
-                className="w-full h-[500px] lg:h-[650px] object-cover"
-              />
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
+    <section className="relative w-full min-h-screen overflow-hidden">
+      {/* Full-bleed hero image */}
+      <img
+        src={heroImg}
+        alt="A4 Gents Salon hero"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+      {/* Dark overlay so any overlaid UI remains legible */}
+      <div className="absolute inset-0 bg-black/30" />
     </section>
   );
 }
@@ -173,7 +116,7 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-24 bg-[#111111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -182,10 +125,10 @@ function Services() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-[#111111] mb-4 uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase tracking-wide">
             Our Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Crafted for the modern gentleman
           </p>
         </motion.div>
@@ -201,23 +144,23 @@ function Services() {
             <motion.div 
               key={service.id}
               variants={fadeInUp}
-              className={`group bg-white p-8 border-2 border-[#111111] relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(245,197,24,1)] ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              className={`group bg-[#1a1a1a] p-8 border-2 border-white/10 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[#F5C518] hover:shadow-[8px_8px_0px_0px_rgba(245,197,24,0.3)] ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#111111] group-hover:bg-[#F5C518] transition-colors duration-300"></div>
+              <div className="absolute top-0 left-0 w-2 h-full bg-white/10 group-hover:bg-[#F5C518] transition-colors duration-300"></div>
               
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-full border-2 border-[#111111] flex items-center justify-center bg-gray-50 group-hover:bg-[#F5C518] group-hover:border-[#F5C518] transition-colors duration-300">
-                  <div className="text-[#111111]">{service.icon}</div>
+                <div className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center bg-white/5 group-hover:bg-[#F5C518] group-hover:border-[#F5C518] transition-colors duration-300">
+                  <div className="text-white group-hover:text-[#111111] transition-colors duration-300">{service.icon}</div>
                 </div>
-                <div className="text-4xl font-heading font-bold text-gray-200 group-hover:text-gray-300 transition-colors">
+                <div className="text-4xl font-heading font-bold text-white/10 group-hover:text-[#F5C518]/20 transition-colors">
                   0{service.id}
                 </div>
               </div>
               
-              <h3 className="text-2xl font-heading font-bold text-[#111111] mb-3 uppercase tracking-wide">
+              <h3 className="text-2xl font-heading font-bold text-white mb-3 uppercase tracking-wide">
                 {service.name}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-sans">
+              <p className="text-gray-400 leading-relaxed font-sans">
                 {service.desc}
               </p>
             </motion.div>
@@ -229,7 +172,7 @@ function Services() {
             href={WHATSAPP_URL} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block border-b-2 border-[#111111] text-[#111111] font-heading font-bold text-xl uppercase tracking-wider hover:text-[#F5C518] hover:border-[#F5C518] transition-colors pb-1"
+            className="inline-block border-b-2 border-[#F5C518] text-[#F5C518] font-heading font-bold text-xl uppercase tracking-wider hover:text-white hover:border-white transition-colors pb-1"
           >
             View Full Menu & Pricing →
           </a>
@@ -258,7 +201,7 @@ function GoogleIcon() {
 
 function Reviews() {
   return (
-    <section id="reviews" className="py-24 bg-[#F9F9F9]">
+    <section id="reviews" className="py-24 bg-[#0d0d0d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -267,10 +210,10 @@ function Reviews() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-[#111111] mb-4 uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase tracking-wide">
             Client Reviews
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             What our clients are saying
           </p>
         </motion.div>
@@ -286,7 +229,7 @@ function Reviews() {
             <motion.div 
               key={review.id}
               variants={fadeInUp}
-              className="bg-white p-8 border-2 border-[#111111] flex flex-col h-full shadow-[4px_4px_0px_0px_rgba(17,17,17,1)]"
+              className="bg-[#1a1a1a] p-8 border-2 border-white/10 flex flex-col h-full hover:border-[#F5C518] transition-colors duration-300 shadow-[4px_4px_0px_0px_rgba(245,197,24,0.15)]"
             >
               <div className="flex justify-between items-start mb-6">
                 <div className="flex space-x-1">
@@ -297,12 +240,12 @@ function Reviews() {
                 <GoogleIcon />
               </div>
               
-              <p className="text-gray-700 italic flex-grow mb-6 text-lg font-sans">
+              <p className="text-gray-300 italic flex-grow mb-6 text-lg font-sans">
                 "{review.text}"
               </p>
               
-              <div className="border-t-2 border-gray-100 pt-4 mt-auto">
-                <h4 className="font-heading font-bold text-[#111111] text-xl uppercase">
+              <div className="border-t-2 border-white/10 pt-4 mt-auto">
+                <h4 className="font-heading font-bold text-white text-xl uppercase">
                   {review.name}
                 </h4>
               </div>
@@ -316,7 +259,7 @@ function Reviews() {
 
 function MapSection() {
   return (
-    <section id="location" className="py-24 bg-white">
+    <section id="location" className="py-24 bg-[#111111]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -325,10 +268,10 @@ function MapSection() {
           variants={fadeInUp}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-[#111111] mb-4 uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase tracking-wide">
             Find Us
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto flex items-center justify-center gap-2">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto flex items-center justify-center gap-2">
             <MapPin className="text-[#F5C518] w-5 h-5" />
             Mahendra Narayan Choudhury Balika Mahavidyalaya area, Ward No. 7, Nalbari, Assam
           </p>
@@ -431,7 +374,7 @@ function Footer() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#F9F9F9] font-sans selection:bg-[#F5C518] selection:text-[#111111]">
+    <div className="min-h-screen bg-[#111111] font-sans selection:bg-[#F5C518] selection:text-[#111111]">
       <Navbar />
       <main>
         <Hero />
