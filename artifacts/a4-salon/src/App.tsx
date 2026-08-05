@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Scissors, Sparkles, Wind, Hand, Crown, Star, MapPin, Phone, Clock, Menu, X } from 'lucide-react';
-import heroImg from '@assets/file_000000001b688208932afc657ac7302c_1785915993695.png';
 
-const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
+const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20Grtx%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
+const HERO_IMAGE_URL = "https://i.ibb.co/7xvSCC6C/file-000000001b688208932afc657ac7302c-be7139da-0b00-4646-ad5f-58fb10a1776a.jpg";
 
 /* ── Animations ── */
 const fadeInUp: Variants = {
@@ -30,7 +30,7 @@ const staggerContainer: Variants = {
 const NAV_LINKS = [
   { label: 'HOME',     href: '#home'     },
   { label: 'SERVICES', href: '#services' },
-  { label: 'REVIEWS',  href: '#reviews'  },
+  { label: 'ABOUT US', href: '#about'    },
   { label: 'CONTACT',  href: '#contact'  },
 ];
 
@@ -38,83 +38,52 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-[#FFFBEA]/95 backdrop-blur-sm border-b border-yellow-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav className="absolute top-0 left-0 w-full flex justify-end md:justify-center p-6 z-50">
+      {/* Desktop links */}
+      <div className="hidden md:flex items-center space-x-8">
+        {NAV_LINKS.map(link => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-[#111111] hover:text-[#F4C01E] font-heading font-semibold text-sm tracking-widest transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
 
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <a href="#home" className="font-heading font-bold text-2xl tracking-wide text-[#111111]">
-              A4 GENTS SALON
-            </a>
-          </div>
-
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {NAV_LINKS.map(link => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-gray-600 hover:text-[#F5C518] font-heading font-semibold text-sm tracking-widest transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Book button */}
-          <div className="hidden md:flex items-center">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#F5C518] text-[#111111] px-6 py-2.5 rounded-full font-heading font-bold tracking-wide hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
-            >
-              BOOK APPOINTMENT
-            </a>
-          </div>
-
-          {/* Mobile hamburger */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-[#111111] hover:text-[#F5C518] focus:outline-none"
-            >
-              {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-            </button>
-          </div>
-        </div>
+      {/* Mobile hamburger */}
+      <div className="md:hidden flex items-center">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isOpen}
+          className="text-[#111111] hover:text-[#F4C01E] focus:outline-none"
+        >
+          {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+        </button>
       </div>
 
       {/* Mobile drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#FFFBEA] border-b border-yellow-200 overflow-hidden"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="absolute top-full right-4 w-56 bg-[#FFFBEA]/95 backdrop-blur-sm border border-yellow-200 shadow-lg overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-2">
+            <div className="px-4 pt-2 pb-4 space-y-1">
               {NAV_LINKS.map(link => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-lg font-heading font-semibold tracking-widest text-gray-700 hover:text-[#F5C518]"
+                  className="block px-3 py-2 text-lg font-heading font-semibold tracking-widest text-gray-700 hover:text-[#F4C01E]"
                 >
                   {link.label}
                 </a>
               ))}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center mt-4 bg-[#F5C518] text-[#111111] px-6 py-3 rounded-full font-heading font-bold tracking-wide"
-              >
-                BOOK APPOINTMENT
-              </a>
             </div>
           </motion.div>
         )}
@@ -126,12 +95,21 @@ function Navbar() {
 /* ── Hero ── */
 function Hero() {
   return (
-    <section id="home" className="w-full pt-20 bg-[#FFFBEA]">
+    <section id="home" className="relative w-full h-screen md:min-h-screen flex items-center justify-center overflow-hidden bg-[#F9F9F9]">
       <img
-        src={heroImg}
-        alt="A4 Gents Salon — Style That Speaks You"
-        className="w-full h-auto object-contain block"
+        src={HERO_IMAGE_URL}
+        alt="Grtx Hero"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain object-center"
       />
+      <Navbar />
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-8 left-6 sm:bottom-12 sm:left-8 md:bottom-32 md:left-[10%] z-50 bg-[#111111] text-[#F4C01E] px-8 py-4 rounded-full font-heading font-bold tracking-wider shadow-lg hover:scale-105 transition-transform duration-300"
+      >
+        BOOK APPOINTMENT →
+      </a>
     </section>
   );
 }
@@ -476,7 +454,6 @@ function Footer() {
 function App() {
   return (
     <div className="min-h-screen bg-[#FFFBEA] font-sans selection:bg-[#F5C518] selection:text-[#111111]">
-      <Navbar />
       <main>
         <Hero />
         <Services />
