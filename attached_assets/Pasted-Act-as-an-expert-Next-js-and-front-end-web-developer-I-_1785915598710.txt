@@ -1,0 +1,28 @@
+Act as an expert Next.js and front-end web developer. I am building a minimalist Next.js App Router single-page landing website for a local salon named 'A4 Gents Salon Nalbari'. Please build this exact layout using Next.js and Tailwind CSS.
+​Important Infrastructure Rules:
+​Static Export: I need the code to be a 100% Static HTML Export because I am deploying to Cloudflare Pages. Add output: 'export' inside my next.config.js or next.config.mjs file immediately.
+​No SSR: Do not use any server-side rendering (SSR), API Routes, or Node.js backend features that are incompatible with a static export. All data should be fetched on the client side or pre-rendered at build time.
+​Build Scripts: Make sure my package.json scripts are standard (just "build": "next build") without any custom ports or 0.0.0.0 bindings.
+​Next.js Images: Ensure all images are compatible with the static export loader requirements (use standard HTML <img> tags for external links).
+​Global Design System (Must apply to ALL sections):
+5. Minimalist & Cohesive Aesthetic: The entire landing page must strictly follow a cohesive design language. Keep everything clean and minimal. Use an off-white/cream background (#F9F9F9), true black for text/cards (#111111), and a vibrant yellow/amber accent color.
+6. Typography: Use a bold, condensed sans-serif font (like Oswald or Bebas Neue) for headers. Use a clean sans-serif (like Inter) for body text.
+7. WhatsApp Integration: Every single "BOOK APPOINTMENT" button on the site must be an <a> tag linking to WhatsApp: href="https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!" target="_blank".
+​Section 1: Hero & Navbar
+8. Layout Structure: Build a top navigation bar (Logo text 'A4 Jents Salon' on left, links center, button right), and a minimalist two-column hero section (text on left, main image on right).
+9. Hero Image: On the right side of the hero section, use this exact live image link: https://i.ibb.co/67Cnpvcp/file-000000002eec8208966cc0a06c147d4a.png. Use standard <img> tags with object-cover and rounded styling.
+10. Text Highlights: In the main heading, make sure key action words are highlighted in the yellow accent color, while the rest is black.
+11. Primary CTA Button: Create the 'BOOK YOUR APPOINTMENT ->' button as a black pill shape with yellow text. Connect it to the WhatsApp link above.
+​Section 2: Our Services
+12. Services Menu: Below the hero, create a highly minimalist grid. Title the section 'OUR SERVICES'.
+13. Service List: Include these exact 5 services: Facials, Haircut, Hairstyling, Massage, and Wedding & event preparation. Style them as elegant, minimal cards with dark borders and subtle yellow hover effects.
+​Section 3: Google Reviews
+14. Reviews Layout: Below the services, create a minimal section titled 'CLIENT REVIEWS'.
+15. Real Testimonials: Create a grid with real 5-star Google reviews. Include a small Google 'G' icon and 5 gold stars on each card.
+* Review 1: Name: "Rahima Begum", Text: "Good saloon."
+* Review 2: Name: "Jack Thakuria", Text: "The best hairstylist Name Abdul. Must recommend"
+* Review 3: Create a premium placeholder 5-star review.
+​Section 4: Map & Footer
+16. Map Embed: Above the footer, add a clean section embedding a Google Maps iframe for 'Mahendra Narayan Choudhury Balika Mahavidyalaya, near MNC College, Ward No. 7, Nalbari, Majdia, Assam 781353'. Make the map full width or contained elegantly within the layout bounds.
+17. Footer Layout: Build a dark-themed (#111111) responsive footer at the bottom.
+18. Footer Content: Include the business name ('A4 Gents Salon Nalbari'), a Google Rating badge (5 gold stars, '4.5 (25 Reviews)'), the full address with a map pin icon, the phone number ('084867 54335' with a phone icon linking to tel:08486754335), the operating hours ('Open · Closes 9 pm'), and a final WhatsApp booking button.

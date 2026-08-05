@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "A4 Gents Salon Nalbari"
+description = "A minimalist single-page landing website for A4 Gents Salon Nalbari, a local men's grooming salon in Assam, India. Features a hero section, services grid, client reviews, Google Maps embed, and a dark footer — all with WhatsApp booking integration."
+version = "1.0.0"
+id = "artifacts/a4-salon"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25836
+
+[services.development]
+run = "pnpm --filter @workspace/a4-salon run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/a4-salon", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/a4-salon/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25836"
+BASE_PATH = "/"
