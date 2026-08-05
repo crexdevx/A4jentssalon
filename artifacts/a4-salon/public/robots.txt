@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://a4gentssalon.in/sitemap.xml

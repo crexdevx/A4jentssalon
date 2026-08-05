@@ -4,7 +4,7 @@ import type { Variants } from 'framer-motion';
 import { Scissors, Sparkles, Wind, Hand, Crown, Star, MapPin, Phone, Clock, Menu, X } from 'lucide-react';
 import heroImg from '@assets/file_000000001b688208932afc657ac7302c-be7139da-0b00-4646-ad5f-_1785922787097.jpg';
 
-const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20Grtx%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
+const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon%20Nalbari,%20I%20would%20like%20to%20book%20an%20appointment!";
 
 /* ── Animations ── */
 const fadeInUp: Variants = {
@@ -120,9 +120,12 @@ function Hero() {
     <section id="home" className="w-full bg-[#F9F9F9] flex flex-col relative">
       <img
         src={heroImg}
-        alt="Grtx Hero"
+        alt="A4 Gents Salon Nalbari — best men's salon and haircut in Nalbari, Assam"
+        width={1488}
+        height={1056}
         className="w-full h-auto object-contain"
       />
+      <h1 className="sr-only">A4 Gents Salon Nalbari — Best Men's Salon &amp; Haircut in Nalbari, Assam</h1>
       <a
         href={WHATSAPP_URL}
         target="_blank"

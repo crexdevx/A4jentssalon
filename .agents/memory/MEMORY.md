@@ -1,0 +1,1 @@
+- [SEO entry point](seo-entry-point.md) — this salon app is Vite/React; crawler-facing metadata belongs in the artifact's static index.html, not a Next.js layout.
