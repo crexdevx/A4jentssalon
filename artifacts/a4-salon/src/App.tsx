@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Scissors, Sparkles, Wind, Hand, Crown, Star, MapPin, Phone, Clock, Menu, X } from 'lucide-react';
-import heroImg from '@assets/file_000000001b688208932afc657ac7302c-be7139da-0b00-4646-ad5f-_1785922787097.jpg';
 
-const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon%20Nalbari,%20I%20would%20like%20to%20book%20an%20appointment!";
+const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
+const HERO_IMAGE_URL = "https://i.ibb.co/7xvSCC6C/file-000000001b688208932afc657ac7302c-be7139da-0b00-4646-ad5f-58fb10a1776a.jpg";
 
 /* ── Animations ── */
 const fadeInUp: Variants = {
@@ -119,7 +121,7 @@ function Hero() {
   return (
     <section id="home" className="w-full bg-[#F9F9F9] flex flex-col relative">
       <img
-        src={heroImg}
+        src={HERO_IMAGE_URL}
         alt="A4 Gents Salon Nalbari — best men's salon and haircut in Nalbari, Assam"
         width={1488}
         height={1056}
