@@ -19,13 +19,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: false
 
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build Project
-        run: npm run build
+        run: pnpm run build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
