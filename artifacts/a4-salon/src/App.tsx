@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Scissors, Sparkles, Wind, Hand, Crown, Star, MapPin, Phone, Clock, Menu, X } from 'lucide-react';
+import heroImg from '@assets/file_000000001b688208932afc657ac7302c-be7139da-0b00-4646-ad5f-_1785922787097.jpg';
 
 const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20Grtx%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
-const HERO_IMAGE_URL = "https://i.ibb.co/7xvSCC6C/file-000000001b688208932afc657ac7302c-be7139da-0b00-4646-ad5f-58fb10a1776a.jpg";
 
 /* ── Animations ── */
 const fadeInUp: Variants = {
@@ -119,7 +119,7 @@ function Hero() {
   return (
     <section id="home" className="w-full bg-[#F9F9F9] flex flex-col relative">
       <img
-        src={HERO_IMAGE_URL}
+        src={heroImg}
         alt="Grtx Hero"
         className="w-full h-auto object-contain"
       />
@@ -127,7 +127,7 @@ function Hero() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute bottom-[10%] left-[5%] md:bottom-[20%] md:left-[10%] z-40 bg-[#111111] text-[#F4C01E] px-8 py-4 rounded-full font-heading font-bold tracking-wider shadow-lg hover:scale-105 transition-transform duration-300"
+        className="absolute bottom-[4%] left-[3%] md:bottom-[8%] md:left-[6%] z-40 bg-[#111111] text-[#F4C01E] px-4 py-2 text-sm md:px-5 md:py-2.5 md:text-base rounded-full font-heading font-bold tracking-wide shadow-lg hover:scale-105 transition-transform duration-300"
       >
         BOOK APPOINTMENT →
       </a>
