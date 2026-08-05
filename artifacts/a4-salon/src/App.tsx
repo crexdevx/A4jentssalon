@@ -20,6 +20,14 @@ const staggerContainer = {
   }
 };
 
+const NAV_LINKS = [
+  { label: 'HOME',     href: '#home'     },
+  { label: 'SERVICES', href: '#services' },
+  { label: 'GALLERY',  href: '#gallery'  },
+  { label: 'ABOUT US', href: '#about'    },
+  { label: 'CONTACT',  href: '#contact'  },
+];
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,21 +36,27 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="font-heading font-bold text-2xl tracking-wide text-white">
+            <a href="#home" className="font-heading font-bold text-2xl tracking-wide text-white">
               A4 GENTS SALON
             </a>
           </div>
-          
-          <div className="hidden md:flex items-center space-x-10">
-            <a href="#services" className="text-gray-300 hover:text-[#F5C518] font-medium transition-colors">Services</a>
-            <a href="#reviews" className="text-gray-300 hover:text-[#F5C518] font-medium transition-colors">Reviews</a>
-            <a href="#location" className="text-gray-300 hover:text-[#F5C518] font-medium transition-colors">Location</a>
+
+          <div className="hidden md:flex items-center space-x-8">
+            {NAV_LINKS.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-gray-300 hover:text-[#F5C518] font-heading font-semibold text-sm tracking-widest transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
           <div className="hidden md:flex items-center">
-            <a 
-              href={WHATSAPP_URL} 
-              target="_blank" 
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-[#F5C518] text-[#111111] px-6 py-2.5 rounded-full font-heading font-bold tracking-wide hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
             >
@@ -51,8 +65,8 @@ function Navbar() {
           </div>
 
           <div className="md:hidden flex items-center">
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
+            <button
+              onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-[#F5C518] focus:outline-none"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
@@ -64,19 +78,26 @@ function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-[#111111] border-b border-white/10 overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-3">
-              <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-gray-300 hover:text-[#F5C518]">Services</a>
-              <a href="#reviews" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-gray-300 hover:text-[#F5C518]">Reviews</a>
-              <a href="#location" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-lg font-medium text-gray-300 hover:text-[#F5C518]">Location</a>
-              <a 
-                href={WHATSAPP_URL} 
-                target="_blank" 
+            <div className="px-4 pt-2 pb-6 space-y-2">
+              {NAV_LINKS.map(link => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 text-lg font-heading font-semibold tracking-widest text-gray-300 hover:text-[#F5C518]"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="block w-full text-center mt-4 bg-[#F5C518] text-[#111111] px-6 py-3 rounded-full font-heading font-bold tracking-wide"
@@ -93,15 +114,14 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Full-bleed hero image */}
+    <section id="home" className="relative w-full min-h-screen overflow-hidden">
+      {/* Full-bleed hero image — no overlay so the design fills edge-to-edge */}
       <img
         src={heroImg}
         alt="A4 Gents Salon hero"
         className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ objectPosition: '50% 30%' }}
       />
-      {/* Dark overlay so any overlaid UI remains legible */}
-      <div className="absolute inset-0 bg-black/30" />
     </section>
   );
 }
@@ -176,6 +196,142 @@ function Services() {
           >
             View Full Menu & Pricing →
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const galleryItems = [
+  { label: 'Precision Haircut',   bg: 'bg-[#1a1a1a]', icon: <Scissors className="w-10 h-10 text-[#F5C518]" /> },
+  { label: 'Beard Styling',       bg: 'bg-[#161616]', icon: <Wind className="w-10 h-10 text-[#F5C518]" />     },
+  { label: 'Facial Treatment',    bg: 'bg-[#1e1e1e]', icon: <Sparkles className="w-10 h-10 text-[#F5C518]" /> },
+  { label: 'Head Massage',        bg: 'bg-[#161616]', icon: <Hand className="w-10 h-10 text-[#F5C518]" />     },
+  { label: 'Wedding Grooming',    bg: 'bg-[#1a1a1a]', icon: <Crown className="w-10 h-10 text-[#F5C518]" />   },
+  { label: 'Hair Styling',        bg: 'bg-[#1e1e1e]', icon: <Star className="w-10 h-10 text-[#F5C518]" />    },
+];
+
+function Gallery() {
+  return (
+    <section id="gallery" className="py-24 bg-[#0d0d0d]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase tracking-wide">
+            Gallery
+          </h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Where precision meets artistry
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="grid grid-cols-2 md:grid-cols-3 gap-4"
+        >
+          {galleryItems.map((item, i) => (
+            <motion.div
+              key={i}
+              variants={fadeInUp}
+              className={`${item.bg} border-2 border-white/10 hover:border-[#F5C518] transition-all duration-300 group cursor-pointer overflow-hidden`}
+            >
+              <div className="aspect-square flex flex-col items-center justify-center gap-4 p-8 group-hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-full border-2 border-white/10 group-hover:border-[#F5C518] flex items-center justify-center transition-colors duration-300">
+                  {item.icon}
+                </div>
+                <p className="font-heading font-bold text-white text-lg uppercase tracking-widest text-center">
+                  {item.label}
+                </p>
+                <div className="w-8 h-0.5 bg-[#F5C518] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="mt-16 text-center">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-[#F5C518] text-[#111111] px-10 py-4 rounded-full font-heading font-bold text-lg uppercase tracking-wider hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
+          >
+            BOOK YOUR SESSION →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="py-24 bg-[#111111]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.span variants={fadeInUp} className="block text-sm font-bold tracking-widest text-[#F5C518] uppercase mb-4">
+              About Us
+            </motion.span>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 uppercase leading-tight"
+            >
+              Crafted for the <span className="text-[#F5C518]">Modern</span> Man
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-gray-400 text-lg leading-relaxed mb-6">
+              A4 Gents Salon Nalbari is Assam's premier destination for men's grooming. Founded with a passion for precision and style, we bring world-class barbering techniques to the heart of Nalbari.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="text-gray-400 text-lg leading-relaxed mb-10">
+              Our expert stylists — led by Abdul — have mastered the art of the perfect cut, shave, and style. Every client walks out looking sharp and feeling confident.
+            </motion.p>
+            <motion.div variants={fadeInUp}>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-[#F5C518] text-[#111111] px-8 py-4 rounded-full font-heading font-bold text-lg uppercase tracking-wider hover:bg-yellow-400 transition-colors duration-300"
+              >
+                MEET THE TEAM →
+              </a>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 gap-4"
+          >
+            {[
+              { value: '5+',   label: 'Years Experience' },
+              { value: '25+',  label: 'Google Reviews'   },
+              { value: '4.5★', label: 'Rating'           },
+              { value: '100%', label: 'Satisfaction'     },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="bg-[#1a1a1a] border-2 border-white/10 hover:border-[#F5C518] p-8 text-center transition-colors duration-300"
+              >
+                <div className="text-4xl font-heading font-bold text-[#F5C518] mb-2">{stat.value}</div>
+                <div className="text-gray-400 text-sm uppercase tracking-widest">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
@@ -259,7 +415,7 @@ function Reviews() {
 
 function MapSection() {
   return (
-    <section id="location" className="py-24 bg-[#111111]">
+    <section id="contact" className="py-24 bg-[#111111]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -379,6 +535,8 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <Gallery />
+        <About />
         <Reviews />
         <MapSection />
       </main>
