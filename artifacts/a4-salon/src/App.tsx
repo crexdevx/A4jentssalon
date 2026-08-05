@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { Scissors, Sparkles, Wind, Hand, Crown, Star, MapPin, Phone, Clock, Menu, X } from 'lucide-react';
 import heroImg from '@assets/file_000000001b688208932afc657ac7302c_1785915993695.png';
 
 const WHATSAPP_URL = "https://wa.me/918486754335?text=Hello%20A4%20Gents%20Salon,%20I%20would%20like%20to%20book%20an%20appointment!";
 
 /* ── Animations ── */
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
 };
 
 // Slow smooth pop-up — replaces slide animations for service cards
-const popUp = {
+const popUp: Variants = {
   hidden: { opacity: 0, scale: 0.90, y: 28 },
   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -174,15 +175,13 @@ function Services() {
             <motion.div
               key={service.id}
               variants={popUp}
-              className={`group bg-white p-8 border-2 border-gray-200 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[#F5C518] hover:shadow-[8px_8px_0px_0px_rgba(245,197,24,0.25)] ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              className={`group bg-white p-8 border-2 border-gray-200 border-l-4 border-l-[#F4C01E] relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[#F4C01E] hover:shadow-[8px_8px_0px_0px_rgba(244,192,30,0.25)] ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
-              <div className="absolute top-0 left-0 w-2 h-full bg-gray-200 group-hover:bg-[#F5C518] transition-colors duration-300"></div>
-
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-full border-2 border-gray-200 flex items-center justify-center bg-gray-50 group-hover:bg-[#F5C518] group-hover:border-[#F5C518] transition-colors duration-300">
-                  <div className="text-[#111111] group-hover:text-[#111111] transition-colors duration-300">{service.icon}</div>
+                <div className="w-14 h-14 rounded-full border-2 border-[#F4C01E] flex items-center justify-center bg-[#F4C01E] transition-colors duration-300">
+                  <div className="text-[#111111]">{service.icon}</div>
                 </div>
-                <div className="text-4xl font-heading font-bold text-gray-200 group-hover:text-[#F5C518]/40 transition-colors">
+                <div className="text-4xl font-heading font-bold text-gray-200">
                   0{service.id}
                 </div>
               </div>
