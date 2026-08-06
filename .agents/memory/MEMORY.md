@@ -1,2 +1,3 @@
 - [SEO entry point](seo-entry-point.md) — this salon app is Vite/React; crawler-facing metadata belongs in the artifact's static index.html, not a Next.js layout.
 - [Cloudflare Pages deployment](cloudflare-pages-deployment.md) — static Next export uses `out` plus `wrangler pages deploy`; root builds must target the salon app only.
+- [Static heading visibility](static-heading-visibility.md) — above-the-fold section headings should not depend on client animation hydration in the static export.
