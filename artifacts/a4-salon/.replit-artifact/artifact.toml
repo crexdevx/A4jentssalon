@@ -17,7 +17,7 @@ run = "pnpm --filter @workspace/a4-salon run dev"
 [services.production]
 build = [ "pnpm", "--filter", "@workspace/a4-salon", "run", "build" ]
 serve = "static"
-publicDir = "artifacts/a4-salon/dist/public"
+publicDir = "artifacts/a4-salon/out"
 
 [[services.production.rewrites]]
 from = "/*"
