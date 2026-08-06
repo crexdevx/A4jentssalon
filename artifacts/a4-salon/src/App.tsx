@@ -152,19 +152,14 @@ function Services() {
   return (
     <section id="services" className="py-24 bg-[#FFFBEA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-[#111111] mb-4 uppercase tracking-wide">
             Our Services
           </h2>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
             Crafted for the modern gentleman
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
